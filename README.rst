@@ -11,12 +11,12 @@ Equipment and Material Requirements
     **Requirements**
         * Anaconda or other Python Interpreter and Prompt
 
-        * Java JDK
-            - Check to see if you have the latest version of Java with:
-                    ``$ javac --version``
-            - Install java onto your Linux machine with:
-                    ``$ sudo apt install default-jdk``
-        * Latest version of git
+        * Scrapy Python package
+            - Install Scrapy onto your machine with conda using:
+                    ``$ conda install -c conda-forge scrapy``
+            - Alternatively you can install using pip:
+                    ``$ pip install Scrapy``
+        * Latest version of git (Optional)
             - Check to see if you have the latest version of git with:
                     ``$ git --version``
             - Install git onto your Linux machine with:
@@ -27,7 +27,7 @@ Equipment and Material Requirements
 ************
 Installation
 ************
-        * Reelgood Spider
+        * Reelgood Spider and Visualizer
             - You may download the files from GitHub_ or clone with:
                     .. _GitHub: https://github.com/turnerpat/Reelgood-Scraper
 
@@ -72,12 +72,12 @@ Executing and Code Example
 ****
 FAQs
 ****
-        * "How do I make new maze maps?"
+        * "How do I change the spider settings?"
 
-            - Create a text file with exactly 19 rows and 39 columns (they can have spaces between them). 
-            - Fill out these spaces with 0 and 1 characters, with spaces you can move through being 0 and spaces you cannot being 1. 
-            - You must also include a single S character to start from and one G character to be the goal. 
-            - Look at the easy and hard text files provided to see the formatting as an example.
+            - Spider settings can be found in the reelgoodSpider/reelgoodSpider/settings.py file. 
+            - Uncomment or change listed settings in the file to change the spider settings when it runs. 
+            - For details on each setting option see the file comments or the Scrapy_ documentation. 
+            .. _Scrapy: https://docs.scrapy.org/en/latest/topics/settings.html
 
         * "Can this code run on Windows and Mac machines?"
 
