@@ -5,9 +5,9 @@ Introduction
 ************
     This is a scrapy spider for the website Reelgood.com. The spider can be run on a variable number of TV and Movie item pages in increments of 50. This documentation will detail how to run the spider and the visualizations that can be generated from it using python packages.
 
-***********************************
-Equipment and Material Requirements
-***********************************
+************
+Requirements
+************
     **Requirements**
         * Anaconda or other Python Interpreter and Prompt
 
@@ -33,9 +33,9 @@ Installation
 
                     ``$ git clone https://github.com/turnerpat/Reelgood-Scraper.git``
 
-**************************
-Executing and Code Example
-**************************
+*********
+Execution
+*********
     After you have the MazeGame files on your machine, follow these steps for executing the program.
         * Change into the directory with:
 
@@ -90,13 +90,6 @@ FAQs
             - The output files provided serve to show what the program will convert the easy and hard text files into. The program will still work without them.
 
     If you have any questions or remaining issues feel free to contact me at turnerpatrick21@gmail.com.
-
-***************************
-Troubleshooting and Support
-***************************
-       - If you need additional troubleshooting, help, or support you can contact me at turnerpatrick21@gmail.com for inidivual issues.
-        
-       - Bug reporting and additional notes should be sent here as well.
 
 *********
 Licensing
