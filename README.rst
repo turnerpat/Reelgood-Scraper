@@ -10,7 +10,7 @@ Requirements
 ************
     **Requirements**
         * Anaconda_ or other Python Interpreter/Prompt
-          .. _Anaconda: https://www.anaconda.com/products/distribution
+            .. _Anaconda: https://www.anaconda.com/products/distribution
         
         * Scrapy Python package
             - Install Scrapy onto your machine with conda using:
@@ -64,7 +64,9 @@ Execution
         * As an example you can output to csv, json, jsonlines, xml, etc.
         
             ``$ scrapy runspider reelgood.py -o articles.csv -t csv``
+            
             ``$ scrapy runspider reelgood.py -o articles.json -t json``
+            
             ``$ scrapy runspider reelgood.py -o articles.xml -t xml``
             
     The code is now being executed and will output details of the data scraping to your prompt. If you output to a file it will be written to in the same directory as the reelgood.py file.
