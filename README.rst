@@ -72,6 +72,7 @@ Execution
     The code is now being executed and will output details of the data scraping to your prompt. If you output to a file it will be written to in the same directory as the reelgood.py file.
     
     .. code-block:: python
+    
         class ReelgoodSpider(CrawlSpider):
             name = 'reelgood'
             allowed_domains = ['reelgood.com']
@@ -84,6 +85,7 @@ Execution
                 start_urls.append(f'https://reelgood.com/movies?offset={i * 50}')
                 start_urls.append(f'https://reelgood.com/tv?offset={i * 50}')
     
+    
     The code above is from the top of reelgood.py. As the comments say you can change the offset to determine how many item pages are scraped in increments of 50. For example, the data set generated was used with an offset of 200, meaning 10,000 item pages were scraped each for the main tv and movie page. 
     
     WARNING: Depending on the offset number set in reelgood.py the number of item pages the spider will crawl, and therefore the amount of time taken will vary. Subsequent scrapes can be sped up if HTTP caching is turned on in settings.py (it is on by default). Scrapes are in increments of 50 due to each page of the tv and movie page tables hold 50 items each.
@@ -92,9 +94,11 @@ Execution
     TV and Movie pages have different parse methods provided that each scrape over 15 attributes from the page. Attributes scraped include the title, imdb score, reelgood score, list of genre(s), maturity rating, release year(s), runtime for movies, number of seasons for tv, the ongoing/finished status of tv shows, list of streaming services, list of associated tags, country of production, director of movie, top three* billed actors (can be increased, see comments below), link to poster, url, and description of plot/critical reception.
     
     .. code-block:: python
+    
         # Change the numbers in the array at the end to determine how many actors are shown:
         # (start from 1 to remove director)
         'actors': response.xpath('//div[@class="css-gq6ll egg5eqo4"]/a/@title').extract()[1:4],
+        
     
     Both TV and Movie parsers by default will scrape the top three billed actors from a given production. This can be changed to be less or more by changing the second value in the brackets after .extract(). For example, [1:6] would return the top 4 actors.
     
