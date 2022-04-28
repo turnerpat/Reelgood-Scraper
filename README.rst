@@ -9,6 +9,8 @@ Introduction
 Requirements
 ************
     **Requirements**
+        * Python 3.9 or higher
+    
         * Anaconda_ or other Python Interpreter/Prompt
             .. _Anaconda: https://www.anaconda.com/products/distribution
         
