@@ -9,13 +9,27 @@ Introduction
 Requirements
 ************
     **Requirements**
-        * Anaconda or other Python Interpreter and Prompt
-
+        * Anaconda_ or other Python Interpreter/Prompt
+          .. _Anaconda: https://www.anaconda.com/products/distribution
+        
         * Scrapy Python package
             - Install Scrapy onto your machine with conda using:
                     ``$ conda install -c conda-forge scrapy``
             - Alternatively you can install using pip:
                     ``$ pip install Scrapy``
+        
+        * Pandas Python package
+            - Install Pandas onto your machine with conda using:
+                    ``$ conda install pandas``
+            - Alternatively you can install using pip:
+                    ``$ pip install pandas``
+        
+        * Matplotlib Python package
+            - Install Scrapy onto your machine with conda using:
+                    ``$ conda install matplotlib``
+            - Alternatively you can install using pip:
+                    ``$ pip install matplotlib``
+                    
         * Latest version of git (Optional)
             - Check to see if you have the latest version of git with:
                     ``$ git --version``
@@ -36,38 +50,30 @@ Installation
 *********
 Execution
 *********
-    After you have the MazeGame files on your machine, follow these steps for executing the program.
-        * Change into the directory with:
+    After you have downloaded files on your machine, follow these steps for executing the program:
+        * Open your Anaconda Prompt and change into the directory with:
 
-            ``$ cd MazeGame/``
-        * Compile the code with:
+            ``$ cd reelgoodSpider/reelgoodSpider/spiders/``
+        * Run the spider file with:
             
-            ``$ javac MazeGame.java``
-        * Execute the code with:
+            ``$ scrapy runspider reelgood.py``
+        * You may export the data scraped using these arguments:
 
-            ``$ java MazeGame.java``
+            ``$ scrapy runspider reelgood.py -o [filename].[filetype] -t [filetype]``
+        
+        * As an example you can output to csv, json, jsonlines, xml, etc.
+        
+            ``$ scrapy runspider reelgood.py -o articles.csv -t csv``
+            ``$ scrapy runspider reelgood.py -o articles.json -t json``
+            ``$ scrapy runspider reelgood.py -o articles.xml -t xml``
+            
+    The code is now being executed and will output details of the data scraping to your prompt. If you output to a file it will be written to in the same directory as the reelgood.py file.
+    
+    WARNING: Depending on the offset number set in reelgood.py the number of item pages the spider will crawl, and therefore the amount of time taken will vary. Subsequent scrapes can be sped up if HTTP caching is turned on in settings.py (it is on by default).
 
-    The code is now being executed and should prompt you to input the name of the text file you wish to use.
-
-        .. image:: images/execute.png
-
-    If you look in the directory you will see two text files are provided for you to serve as the maze maps. The file "easy.txt" is used in the example above.
-
-        .. image:: images/maze.png
-
-    After entering any character to continue the console will display the maze and the game will begin.
-
-        .. image:: images/move.png
-
-    Once the game begins you can move your player token (@) around the maze by entering up, down, left, or right (or u, d, l, r to be simpler) into the console. You may also quit by entering quit or q.
-
-    Your token will leave behind bread crumbs (.) to show where you have been in the maze, making it easier to traverse.
-
-    As you can see, the borders of the maze are made up by + and - characters while the walls within the maze itself are X characters that you cannot move through. 
-
-        .. image:: images/complete.png
-
-    The goal of the game is to move your player token from the starting point (S) to the goal point (G) in as few moves as possible.
+    reelgood.py details here
+    
+    visualization details here
 
 ****
 FAQs
@@ -79,17 +85,20 @@ FAQs
             - For details on each setting option see the file comments or the Scrapy_ documentation. 
             .. _Scrapy: https://docs.scrapy.org/en/latest/topics/settings.html
 
-        * "Can this code run on Windows and Mac machines?"
+        * "How do I turn off caching?"
 
-            - Yes! As long as you have the means to compile and run the program with Java you can  play the game on any platform. Simply download from GitHub and compile/execute where possible.
+            - HTTP caching is turned on by default for the reelgood spider, however any cached data has been removed for the release. 
+            - If you do not want to cache scraped item pages go to the settings.py file and set HTTPCACHE_ENABLED equal to False.
 
-            - This could be through an IDE, console, or command line, as long as you know where the files are downloaded and can compile them.
+        * "How do I change attributes, number of pages, etc.?"
 
-        * "What are the output files for?"
+            - Actual output and results of running the spider can be manipulated in the reelgoodSpider/reelgoodSpider/spiders/reelgood.py file. Read file comments for more details.
+            
+        * "What is the 'reelgood.jsonl' file?"
+        
+            - This file is an example data set collected by running the spider. It is a collection of nearly 8000 movie and tv show pages from reelgood.com.             - This is the data set that was used to generate the sample visualizations shown, but are not required to run the spider itself.
 
-            - The output files provided serve to show what the program will convert the easy and hard text files into. The program will still work without them.
-
-    If you have any questions or remaining issues feel free to contact me at turnerpatrick21@gmail.com.
+    If you have any questions or remaining issues please contact turnerpatrick21@gmail.com.
 
 *********
 Licensing
