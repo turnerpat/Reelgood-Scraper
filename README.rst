@@ -125,9 +125,9 @@ FAQs
 
             - Actual output and results of running the spider can be manipulated in the reelgoodSpider/reelgoodSpider/spiders/reelgood.py file. Read file comments for more details.
             
-        * "What is the 'reelgood.jsonl' file?"
+        * "What is the 'reelgood.csv' file?"
         
-            - This file is an example data set collected by running the spider. It is a collection of nearly 8000 movie and tv show pages from reelgood.com.             - This is the data set that was used to generate the sample visualizations shown, but are not required to run the spider itself.
+            - This file is an example data set collected by running the spider. It is a collection of over 8000 movie and tv show pages from reelgood.com.               - This is the data set that was used to generate the sample visualizations shown, but are not required to run the spider itself.
 
     If you have any questions or remaining issues please contact turnerpatrick21@gmail.com.
 
