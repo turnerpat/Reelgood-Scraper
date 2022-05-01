@@ -104,8 +104,15 @@ Execution
     
     Both TV and Movie parsers by default will scrape the top three billed actors from a given production. This can be changed to be less or more by changing the second value in the brackets after .extract(). For example, [1:6] would return the top 4 actors.
     
-    visualization details here
-
+    The file reelgoodPlots.py outside of the scrapy directory can be run with the produced reelgood scrapy data file to create visualizations of the data. 
+    WARNING: The current code will read in a csv file, for other file formats the code must be changed.
+    
+    Viz code here:
+    
+    Using the pandas and matplotlib packages the code will create a dataframe from the input file and then manipulate the dataframes to output a visualized plot. These plots graph different aspects of the data, here are a few examples:
+    
+    Viz graphs here:
+    
 ****
 FAQs
 ****
