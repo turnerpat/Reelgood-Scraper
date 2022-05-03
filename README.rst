@@ -25,6 +25,12 @@ Requirements
                     ``$ conda install pandas``
             - Alternatively you can install using pip:
                     ``$ pip install pandas``
+                    
+        * Seaborn Python package
+            - Install Seaborn onto your machine with conda using:
+                    ``$ conda install seaborn``
+            - Alternatively you can install using pip:
+                    ``$ pip install seaborn``
         
         * Matplotlib Python package
             - Install Scrapy onto your machine with conda using:
@@ -107,11 +113,28 @@ Execution
     The file reelgoodPlots.py outside of the scrapy directory can be run with the produced reelgood scrapy data file to create visualizations of the data. 
     WARNING: The current code will read in a csv file, for other file formats the code must be changed.
     
-    Viz code here:
+    Using the pandas and matplotlib packages the code will create a dataframe from the input file and then manipulate the dataframes to output a visualized plot. These plots graph different aspects of the data. Each final plot creation has been commented out, but here are some examples of what can be produced:
     
-    Using the pandas and matplotlib packages the code will create a dataframe from the input file and then manipulate the dataframes to output a visualized plot. These plots graph different aspects of the data, here are a few examples:
+    .. code-block:: python
     
-    Viz graphs here:
+        # Line Plot of Movie show Reelgood and IMDb scores over time
+        df_mov['year'] = pd.to_datetime(df_mov['year'], errors='coerce')
+        df_mov = df_mov.dropna(subset=['year'])
+        df_mov = df_mov[df_mov['year'].dt.year <= 2022]
+        df_mov = df_mov.sort_values(by='year')
+        df_mov['reelgood'] = df_mov['reelgood'].div(10)
+        title = 'Movie IMDb and Reelgood Scores over time'
+        ax = sea.lineplot(data=df_mov, x='year', y='reelgood', ci=None)
+        ax = sea.lineplot(data=df_mov, x='year', y='imdb', ci=None)
+        ax.set(xlabel='Year', ylabel='Scores', title=title)
+    
+    .. code-block:: python
+    
+        # Boxplot of IMDb scores for all 3276 Movies and all 5752 TV Shows
+        title = 'IMDb scores of all Movies and TV shows'
+        pal = {'TV': "#0ee694", 'Movie': "#e50914"}
+        ax = sea.boxplot(data=df, x="mediatype", y="imdb", palette=pal)
+        ax.set(xlabel='Media Type', title=title)
     
 ****
 FAQs
@@ -134,7 +157,7 @@ FAQs
             
         * "What is the 'reelgood.csv' file?"
         
-            - This file is an example data set collected by running the spider. It is a collection of over 8000 movie and tv show pages from reelgood.com.               - This is the data set that was used to generate the sample visualizations shown, but are not required to run the spider itself.
+            - This file is an example data set collected by running the spider. It is a collection of over 9000 movie and tv show pages from reelgood.com.               - This is the data set that was used to generate the sample visualizations shown, but are not required to run the spider itself.
 
     If you have any questions or remaining issues please contact turnerpatrick21@gmail.com.
 
