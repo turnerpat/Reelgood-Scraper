@@ -6,6 +6,8 @@ import numpy as np
 
 def plot(df):
     # produce plot and return the 'axes'
+    # groups tv and movies into separate dataframes for graphing:
+    # prints means and dataframes for clarification
     df_tv = df.groupby('mediatype').get_group('TV').reset_index(drop=True)
     print(df_tv['reelgood'].mean())
     print(df_tv['imdb'].mean())
